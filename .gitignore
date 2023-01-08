@@ -1,1 +1,5 @@
 .vscode
+main.exe
+main.o
+fractions.o
+fractions.exe
