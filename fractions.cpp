@@ -40,6 +40,13 @@ Fract operator"" _fr(const char* chr_str, size_t size){
     return Fract::gen_from_str(str);
 }
 
+std::istream &operator>>(std::istream &in, Fract &frac){
+    std::string str;
+    in >> str;
+    frac = Fract::gen_from_str(str);
+    return in;
+}
+
 std::pair <int, int> Fract::reduce(int num, int denum){
     std::pair <int, int> red;
     if(denum == 0){

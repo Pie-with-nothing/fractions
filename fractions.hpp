@@ -19,6 +19,7 @@ class Fract{
         Fract(const std::string str_fract);
         ~Fract() = default;
         friend Fract operator"" _fr(const char* chr_str, size_t size);
+        friend std::istream &operator>>(std::istream &in, Fract &frac);
         //out
         friend std::ostream &operator<<(std::ostream &out, const Fract &frac);
 };

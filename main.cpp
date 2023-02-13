@@ -9,6 +9,8 @@ int main(int argc, char const *argv[]){
     //std::cout << (std::string)q << std::endl;
     std::cout << w << std::endl;
     std::cout << z << std::endl;
+    std::cin >> f;
+    std::cout << "You entered " << f << std::endl;
     std::cout << "13/70vvvvv"_fr << std::endl;
     return 0;
 }
