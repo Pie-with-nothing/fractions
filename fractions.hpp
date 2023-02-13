@@ -12,12 +12,15 @@ class Fract{
         //constuct
         Fract();
         Fract(int num, int denum = 1);
-        Fract(const Fract &another);
-        Fract(Fract &&) = default;
+        Fract(const Fract &another) = default;
+        Fract(Fract &&another) = default;
+        Fract &operator=(const Fract &another) = default;
+        Fract &operator=(Fract &&another) = default;
         Fract(const std::string str_fract);
+        ~Fract() = default;
         friend Fract operator"" _fr(const char* chr_str, size_t size);
         //out
-        friend std::ostream &operator<<(std::ostream &os, const Fract &frac);
+        friend std::ostream &operator<<(std::ostream &out, const Fract &frac);
 };
 Fract operator"" _fr(const char* chr_str, size_t size);
 

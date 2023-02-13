@@ -13,8 +13,7 @@ Fract::Fract(){
     this->numer = 0;
     this->denumer = 1;
 }
-
-Fract::Fract(const Fract &another) : Fract(another.numer, another.denumer){}
+//Fract::Fract(const Fract &another) : Fract(another.numer, another.denumer){}
 
 Fract::Fract(const std::string str_fract){
     Fract f = gen_from_str(str_fract);
