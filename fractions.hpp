@@ -12,6 +12,9 @@ class Fract{
         //constuct
         Fract();
         Fract(int num, int denum = 1);
+        Fract(char no_need) = delete;
+        Fract(float no_need) = delete;
+        Fract(double no_need) = delete;
         Fract(const Fract &another) = default;
         Fract(Fract &&another) = default;
         Fract &operator=(const Fract &another) = default;
@@ -22,6 +25,11 @@ class Fract{
         friend std::istream &operator>>(std::istream &in, Fract &frac);
         //out
         friend std::ostream &operator<<(std::ostream &out, const Fract &frac);
+        //types
+        operator int() const;
+        operator float() const;
+        operator double() const;
+        operator std::string() const;
 };
 Fract operator"" _fr(const char* chr_str, size_t size);
 
