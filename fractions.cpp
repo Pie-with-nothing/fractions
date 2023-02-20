@@ -22,16 +22,20 @@ Fract::Fract(const std::string str_fract){
 
 Fract Fract::gen_from_str(const std::string str_fract){
     Fract frac;
+    std::pair <int, int> red_frac;
     short n = str_fract.find('/');
     if(n == -1){
         frac.numer = std::stoi(str_fract);
     }
     else{
-        frac.numer = std::stoi(str_fract.substr(0, n));
-        frac.denumer = std::stoi(str_fract.substr(n + 1));
+        red_frac = reduce(
+                        std::stoi(str_fract.substr(0, n)),
+                        std::stoi(str_fract.substr(n + 1))
+                        );
+        frac.numer = red_frac.first;
+        frac.denumer = red_frac.second;
     }
-    Fract need_ret = frac;
-    return need_ret;  
+    return frac;
 }
 
 Fract operator"" _fr(const char* chr_str, size_t size){
