@@ -36,8 +36,8 @@ Fract operator"" _fr(const char* chr_str, size_t size);
 inline unsigned int NOD(unsigned int x, unsigned int y){
     int div;
     int diff;
-    if(x == y){
-        return x;
+    if(x == y || y == 1){
+        return y;
     }
     diff = x - y;
     if(diff < 0){

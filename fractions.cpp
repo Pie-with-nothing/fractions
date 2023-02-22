@@ -8,18 +8,13 @@ Fract::Fract(int num, int denum){
     this->numer = red_frac.first;
     this->denumer = red_frac.second;
 }
-//Fract::Fract() : Fract(0){}
-Fract::Fract(){
-    this->numer = 0;
-    this->denumer = 1;
-}
+Fract::Fract() : Fract(0){}
 
 Fract::Fract(const std::string str_fract){
     Fract f = gen_from_str(str_fract);
     this->numer = f.numer;
     this->denumer = f.denumer;
 }
-
 Fract Fract::gen_from_str(const std::string str_fract){
     Fract frac;
     std::pair <int, int> red_frac;
@@ -37,19 +32,16 @@ Fract Fract::gen_from_str(const std::string str_fract){
     }
     return frac;
 }
-
 Fract operator"" _fr(const char* chr_str, size_t size){
     std::string str(chr_str, size);
     return Fract::gen_from_str(str);
 }
-
 std::istream &operator>>(std::istream &in, Fract &frac){
     std::string str;
     in >> str;
     frac = Fract::gen_from_str(str);
     return in;
 }
-
 std::pair <int, int> Fract::reduce(int num, int denum){
     std::pair <int, int> red;
     if(denum == 0){
@@ -69,19 +61,15 @@ std::ostream &operator<<(std::ostream &os, const Fract &frac){
         return os << frac.numer;
     }
 }
-
 Fract::operator float() const{
     return float(this->numer) / float(this->denumer);
 }
-
 Fract::operator double() const{
     return double(this->numer) / double(this->denumer);
 }
-
 Fract::operator int() const{
     return int(float(*this));
 }
-
 Fract::operator std::string() const{
     std::string str = std::to_string(this->numer);
     if(this->denumer != 1){
