@@ -43,6 +43,13 @@ class Fract{
         friend Fract operator-=(Fract &self, const Fract &another);
         friend Fract operator*=(Fract &self, const Fract &another);
         friend Fract operator/=(Fract &self, const Fract &another);
+        //compare
+        friend bool operator==(const Fract &self, const Fract &another);
+        friend bool operator!=(const Fract &self, const Fract &another);
+        friend bool operator>(const Fract &self, const Fract &another);
+        friend bool operator<(const Fract &self, const Fract &another);
+        friend bool operator>=(const Fract &self, const Fract &another);
+        friend bool operator<=(const Fract &self, const Fract &another);
 };
 Fract operator"" _fr(const char* chr_str, size_t size);
 

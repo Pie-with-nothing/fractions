@@ -88,10 +88,8 @@ Fract operator-(const Fract &self){
     return copy;
 }
 Fract operator+(const Fract &self, const Fract &another){
-    int num = (
-                self.numer * another.denumer +
-                another.numer * self.denumer
-                );
+    int num = (self.numer * another.denumer +
+               another.numer * self.denumer);
     int den = self.denumer * another.denumer;
     return Fract(num, den);
 }
@@ -123,4 +121,30 @@ Fract operator*=(Fract &self, const Fract &another){
 Fract operator/=(Fract &self, const Fract &another){
     self = self / another;
     return self;
+}
+bool operator==(const Fract &self, const Fract &another){
+    return (
+        self.numer == another.numer &&
+        self.denumer == another.denumer);
+}
+bool operator!=(const Fract &self, const Fract &another){
+    return (
+        self.numer != another.numer ||
+        self.denumer != another.denumer);
+}
+bool operator<(const Fract &self, const Fract &another){
+    return (
+        self.numer * another.denumer <
+        another.numer * self.denumer);
+}
+bool operator>(const Fract &self, const Fract &another){
+    return (
+        self.numer * another.denumer >
+        another.numer * self.denumer);
+}
+bool operator>=(const Fract &self, const Fract &another){
+    return self > another || self == another;
+}
+bool operator<=(const Fract &self, const Fract &another){
+    return self < another || self == another;
 }

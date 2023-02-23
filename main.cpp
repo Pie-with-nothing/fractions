@@ -21,5 +21,6 @@ int main(int argc, char const *argv[]){
     std::cout << *www << std::endl;
     qqq *= z;
     std::cout << *www << std::endl;
+    std::cout << (z == q) << std::endl;
     return 0;
 }
