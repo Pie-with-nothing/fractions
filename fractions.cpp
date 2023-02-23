@@ -77,3 +77,50 @@ Fract::operator std::string() const{
     }
     return str;
 }
+Fract operator+(const Fract &self){
+    Fract copy = self;
+    return copy;
+}
+Fract operator-(const Fract &self){
+    Fract copy;
+    copy.numer = -self.numer;
+    copy.denumer = self.denumer;
+    return copy;
+}
+Fract operator+(const Fract &self, const Fract &another){
+    int num = (
+                self.numer * another.denumer +
+                another.numer * self.denumer
+                );
+    int den = self.denumer * another.denumer;
+    return Fract(num, den);
+}
+Fract operator-(const Fract &self, const Fract &another){
+    return self + (-another);
+}
+Fract operator*(const Fract &self, const Fract &another){
+    int num = self.numer * another.numer;
+    int den = self.denumer * another.denumer;
+    return Fract(num, den);
+}
+Fract operator/(const Fract &self, const Fract &another){
+    int num = self.numer * another.denumer;
+    int den = self.denumer * another.numer;
+    return Fract(num, den);
+}
+Fract operator+=(Fract &self, const Fract &another){
+    self = self + another;
+    return self;
+}
+Fract operator-=(Fract &self, const Fract &another){
+    self = self - another;
+    return self;
+}
+Fract operator*=(Fract &self, const Fract &another){
+    self = self * another;
+    return self;
+}
+Fract operator/=(Fract &self, const Fract &another){
+    self = self / another;
+    return self;
+}

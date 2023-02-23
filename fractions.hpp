@@ -30,6 +30,19 @@ class Fract{
         operator float() const;
         operator double() const;
         operator std::string() const;
+        //unar arith
+        friend Fract operator+(const Fract &self);
+        friend Fract operator-(const Fract &self);
+        //binar arith
+        friend Fract operator+(const Fract &self, const Fract &another);
+        friend Fract operator-(const Fract &self, const Fract &another);
+        friend Fract operator*(const Fract &self, const Fract &another);
+        friend Fract operator/(const Fract &self, const Fract &another);
+        //arith wth assig
+        friend Fract operator+=(Fract &self, const Fract &another);
+        friend Fract operator-=(Fract &self, const Fract &another);
+        friend Fract operator*=(Fract &self, const Fract &another);
+        friend Fract operator/=(Fract &self, const Fract &another);
 };
 Fract operator"" _fr(const char* chr_str, size_t size);
 
